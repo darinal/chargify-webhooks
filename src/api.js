@@ -5,7 +5,7 @@ const app = express();
 
 const router = express.Router()
 
-app.get('/api/actions', (req, res) => {
+router.get('/', (req, res) => {
     res.json({
         'hello': 'world'
     });
