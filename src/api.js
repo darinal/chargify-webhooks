@@ -7,7 +7,13 @@ const router = express.Router()
 
 router.get('/', (req, res) => {
     res.json({
-        'hello': 'world'
+        'action': 'get'
+    });
+});
+
+router.post('/', (req, res) => {
+    res.json({
+        'action': 'post'
     });
 });
 
