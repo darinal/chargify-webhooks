@@ -13,7 +13,11 @@ router.get('/actions', (req, res) => {
 
 router.post('/actions', (req, res) => {
     actions = actions.splice(actions.length - 1);
-    actions.push(req.body.toString());
+    const row = {
+        date: new Date().toLocaleTimeString(),
+        action: req.body.toString()
+    };
+    actions.push(row);
     res.json({
         'saved': req.body.toString()
     });
