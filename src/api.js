@@ -3,17 +3,19 @@ const serverless = require('serverless-http');
 
 const app = express();
 
-const router = express.Router()
+const router = express.Router();
 
-router.get('/', (req, res) => {
-    res.json({
-        'action': 'get'
-    });
+let actions = [];
+
+router.get('/actions', (req, res) => {
+    res.json(actions);
 });
 
-router.post('/', (req, res) => {
+router.post('/actions', (req, res) => {
+    actions = actions.splice(actions.length - 1);
+    actions.push(req.body.toString());
     res.json({
-        'action': 'post'
+        'saved': req.body.toString()
     });
 });
 
